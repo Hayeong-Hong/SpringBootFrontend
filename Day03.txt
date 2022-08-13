@@ -1,0 +1,12 @@
+MUI - React의 프레임워크같은 개념
+        3종 install
+        폰트까지 붙여넣기
+        +react-router-dom install
+
+개발자도구 - 어플리케이션 - 스토리지를 사용할 수 있음
+    localStorage.setItem("ACCESS_TOKEN", response.token);
+
+JSON은 String으로 값을 넘겨준다 메모메모.
+변환하고 싶으면 parse사용
+
+https://galid1.tistory.com/774

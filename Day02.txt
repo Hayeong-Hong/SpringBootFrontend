@@ -1,0 +1,33 @@
+1. JWT(JSON Web Token) 인증 방식
+    - 리액트에서는 Spring Security의 Authentication Token 방식으로 
+      처리를 할 수 없기때문에 JWT 방식을 사용해야된다.
+    - Authorization: Bearer Base64 방식으로 인코딩된 토큰 값
+    - Base64 토큰 값 디코딩 시
+      { //header
+        //토큰 방식
+        "typ": "JWT",
+        //암호화 알고리즘 방식
+        "alg": "HS512"
+      },
+      { //payload
+        //토큰의 주인, 유일한 식별자
+        "sub": "코드 값",
+        //토큰 발행 주체, Spring Boot Application
+        "iss": "Spring Boot App Name",
+        "isa": "토큰 발행 날짜와 시간",
+        "exp": "토큰 만료 시간"
+      }.
+      //signature
+      "토큰 발행 주체가 발행한 서명으로 토큰의 유효성 검사에 사용"
+
+2. JWT 토큰 진행 방식
+    리액트 앱에서 로그인 -> Spring Boot App에서 토큰 발행 ->
+    다른 페이지로 접속 시 -> 발행된 토큰을 Spring Boot App으로 전달
+    -> 토큰이 유효한지 검사 후 -> 리소스 제공(백엔드에서 API 받아올 때)
+
+그레이들 설정 추가
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	testImplementation 'org.springframework.security:spring-security-test'
+	implementation 'io.jsonwebtoken:jjwt-api:0.11.5' //mavenRepository - jjwt api
+	runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.5'  //jjwt impl
+  runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.11.5' //jjwt jackson

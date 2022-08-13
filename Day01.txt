@@ -1,0 +1,19 @@
+1. 리액트와 스프링부트 연동
+    - 리액트 화면에서 스프링 부트 백엔드의 메소드를
+      API로 호출하여 받아온 데이터로 state를 변경하고
+      변경된 state로 다시 렌더링 되는 방식을 사용
+
+2. CORS(교차 출처 리소스 공유)
+    - 모든 웹 어플리케이션은 SOP(Same-origin Policy)를 따르게 되어있다
+      동일한 프로토콜, 포트번호, 도메인에서만 자원을 사용해야 되는 정책
+      예) http://localhost:3000 -> http://localhost:8080
+                                   Api를 가져올 때 cors 문제 발생
+    - CORS 문제 해결 방식
+      1) 리액트 앱에 Proxy 설정
+      2) 백엔드에서 리액트 앱에서의 Cors를 허용해주는 방식
+
+
+      lib설치 리스트
+        sass
+        npm install react-icons
+        npm install classnames
